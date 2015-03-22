@@ -14,7 +14,7 @@ USER hubot
 WORKDIR /home/hubot
 
 RUN yo hubot --owner="HSBNE (executive@hsbne.org)" --name="HSBNEBot" --description="HSBNE Chatbot" --adapter=irc --defaults
-RUN npm install hubot-diagnostics hubot-youtube hubot-url-title hubot-help hubot-tell hubot-seen hubot-podbaydoors hubot-dinner hubot-substitute hubot-old hubot-suggest hubot-loudbot hubot-greetings --save
+RUN npm install hubot-diagnostics hubot-youtube hubot-url-title hubot-help hubot-tell hubot-seen hubot-podbaydoors hubot-dinner hubot-substitute hubot-old hubot-suggest hubot-loudbot --save
 ADD external-scripts.json /home/hubot/
 
 ENV HUBOT_IRC_SERVER irc.freenode.net  
