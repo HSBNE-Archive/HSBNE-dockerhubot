@@ -11,9 +11,13 @@ RUN useradd hubot
 USER hubot
 WORKDIR /home/hubot
 
-RUN yo hubot --owner="fabric8.io <fabric8@googlegroups.com>" --name="fabric8" --description="Platform manager" --adapter=irc --defaults
+RUN yo hubot --owner="HSBNE (executive@hsbne.org)" --name="HSBNEBot" --description="HSBNE Chatbot" --adapter=irc --defaults
+RUN npm install hubot-diagnostics hubot-pugme hubot-rules hubot-shipit hubot-youtube hubot-url-title hubot-help hubot-tell hubot-seen hubot-podbaydoors --save
+ADD external-scripts.json /home/hubot/
 
-ADD fabric8.coffee /home/hubot/scripts/
+ENV HUBOT_IRC_SERVER irc.freenode.net  
+ENV HUBOT_IRC_ROOMS #hsbne  
+ENV HUBOT_IRC_NICK HSBNEBot 
 
 CMD /home/hubot/bin/hubot --adapter irc
 
