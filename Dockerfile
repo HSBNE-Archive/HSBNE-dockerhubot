@@ -1,13 +1,15 @@
-FROM  fedora:21
+FROM google/nodejs
 
-MAINTAINER fabric8.io <fabric8@googlegroups.com>
+MAINTAINER nog3 (nog3@nog3.net)
 
-RUN yum install -y npm git make
 RUN npm install -g yo generator-hubot
 RUN npm install -g coffee-script
 RUN npm install hubot -g
+RUN echo "Australia/Brisbane" | tee /etc/timezone
+RUN dpkg-reconfigure --frontend noninteractive tzdata
 
-RUN useradd hubot
+RUN useradd hubot -m -s /bin/bash
+ENV HOME /home/hubot
 USER hubot
 WORKDIR /home/hubot
 
@@ -18,6 +20,8 @@ ADD external-scripts.json /home/hubot/
 ENV HUBOT_IRC_SERVER irc.freenode.net  
 ENV HUBOT_IRC_ROOMS #hsbne  
 ENV HUBOT_IRC_NICK HSBNEBot 
+
+
 
 CMD /home/hubot/bin/hubot --adapter irc
 
