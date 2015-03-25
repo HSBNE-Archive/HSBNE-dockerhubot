@@ -11,5 +11,6 @@
   "hubot-old",
   "hubot-suggest",
   "hubot-loudbot",
-  "hubot-bikeshed"
+  "hubot-bikeshed",
+  "hubot-react"
 ]
